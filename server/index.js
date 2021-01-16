@@ -1,1 +1,20 @@
-//starting point our server
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+const app = express();
+
+app.use(bodyParser.json({ limit: '30mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
+app.use(cors());
+
+// mongodb+srv://
+const CONNECTION_URL = 'mongodb+srv://usmanwahyu:usmanwahyu123@cluster0.shwh9.mongodb.net/<dbname>?retryWrites=true&w=majority';
+const PORT = process.env.PORT|| 5000;
+
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
+  .catch((error) => console.log(`${error} did not connect`));
+
+mongoose.set('useFindAndModify', false);
