@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
-import { getPost } from './actions/posts'
+import { getPosts } from './actions/posts'
 import memories from './images/memories.png';
 import useStyles from './styles';
 import Posts from './components/Posts/Posts';
@@ -13,7 +13,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPost);
+    dispatch(getPosts);
   }, [dispatch])
 
     return (
