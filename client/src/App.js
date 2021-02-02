@@ -13,8 +13,6 @@ const App = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  console.log(getPosts);
-
   useEffect(() => {
     dispatch(getPosts);
   }, [currentId, dispatch])
