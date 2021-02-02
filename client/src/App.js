@@ -13,6 +13,7 @@ const App = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  // make sure when edit currentId isnt change
   useEffect(() => {
     dispatch(getPosts);
   }, [currentId, dispatch])
