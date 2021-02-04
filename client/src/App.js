@@ -15,7 +15,7 @@ const App = () => {
 
   // make sure when edit currentId isnt change
   useEffect(() => {
-    dispatch(getPosts);
+    dispatch(getPosts());
   }, [currentId, dispatch])
 
     return (
